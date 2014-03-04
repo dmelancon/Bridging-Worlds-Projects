@@ -1,6 +1,5 @@
 from datetime import datetime
 import time
-import calendar as cal
 #This simple script will take an EVENT time in ISO8601 and return the time in seconds until that event
 ISOtime = "2014-03-04T13:11:00-05:00"  #time of event in ISO8601  
  
