@@ -7,7 +7,8 @@ ISOtime = "2014-03-04T13:11:00-05:00"  #time of event in ISO8601
 ISOtime = ISOtime.replace(ISOtime[-6:],"")
 #convert ISOtime to UNIX timecode
 UNIXtime = time.mktime(time.strptime(ISOtime,'%Y-%m-%dT%H:%M:%S'))
-#subtract timezone from unix to show correct time
-timestamp = int(time.time())    #current Unix Timestamp as an INT
+#current Unix Timestamp as an INT
+timestamp = int(time.time())    
+#subtract Unix Timestamp from the event unix time to get time until event
 timeLeft = int(UNIXtime-timestamp)
 print timeLeft
