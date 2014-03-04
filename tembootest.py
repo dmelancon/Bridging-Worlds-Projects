@@ -30,17 +30,15 @@ for rs in ourResult:
 	events[str(rs['summary'])] = str(rs['start']['dateTime'])
 
 for event in events:
-        originald = events[event]
-	#delete T form string for formatting
-        originald = originald.replace("T", " ")
-	#strip timezone and save as variable for unix time
-        timezone = float(originald[-6:].replace(":","."))
-        originald = originald.replace(originald[-6:],"")
-        event_unix = time.mktime(time.strptime(originald,'%Y-%m-%d %H:%M:%S'))
-       #subtract timezone from unix to show correct time
-        timestamp = int(time.time())
-        print timestamp
-        print event_unix
-        timeLeft = int(event_unix-timestamp)
-        print event +","+ str(timeLeft)
+    ISOtime  = events[event]
+	#strip the timezone because time.mktime already assumes local time
+    ISOtime = ISOtime.replace(ISOtime[-6:],"")
+#convert ISOtime to UNIX timecode
+    UNIXtime = time.mktime(time.strptime(ISOtime,'%Y-%m-%dT%H:%M:%S'))
+#current Unix Timestamp as an INT
+    timestamp = int(time.time())    
+#subtract Unix Timestamp from the event unix time to get time until event
+    timeLeft = int(UNIXtime-timestamp)
+    print timeLeft
+    print event +","+ str(timeLeft)
 
