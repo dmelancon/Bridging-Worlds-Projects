@@ -39,6 +39,5 @@ for event in events:
     timestamp = int(time.time())    
 #subtract Unix Timestamp from the event unix time to get time until event
     timeLeft = int(UNIXtime-timestamp)
-    print timeLeft
     print event +","+ str(timeLeft)
 
