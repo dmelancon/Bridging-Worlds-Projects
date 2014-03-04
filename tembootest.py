@@ -4,7 +4,7 @@ from datetime import datetime
 import time
 import calendar as cal
 # Instantiate the Choreo, using a previously instantiated TembooSession object, eg:
-session = TembooSession('dmelancon', 'myFirstApp', '6481689fcb4741d580b39b0447ba73bd')
+session = TembooSession(YOURNAME, 'myFirstApp', YOURID)
 getAllEventsChoreo = GetAllEvents(session)
 
 # Get an InputSet object for the choreo
